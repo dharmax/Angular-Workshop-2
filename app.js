@@ -12,7 +12,34 @@ angular.module('components', [])
 
       }
     };
-  });
+  })
+    .directive("tooltip", function() {
+      return {
+        restrict: 'A',
+        transclude: true,
+        scope: {
+          title:"@title",
+        },
+        template:"<div>"+
+          "<div ng-show='showTooltip' class='info tooltip'>"+
+            "{{title}}"+
+          "</div>"+
+          "<div ng-transclude></div>"+
+        "</div>",
+        link: function(scope,element,attrs,controller) {
+          scope.showTooltip = false;
+          element.bind("mouseover", function() {
+            scope.$apply( "showTooltip=true");
+          });
+          element.bind("mouseleave", function() {
+            scope.$apply( "showTooltip=false");
+          });
+        }
+
+
+
+      }
+    });
 
 var app = angular.module('angularjs-starter', ['components']);
 
