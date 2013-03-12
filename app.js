@@ -1,10 +1,16 @@
 angular.module('components', [])
   .directive( 'user', function() {
     return {
-      scope: {
-        user: "="
-      },
-      template:"<div> <img src='{{user.imageUrl}}'/>{{user.name}}</div>"
+      restrict:'ECA',
+      scope:false,
+      transclude: true,
+      template:"<div class='info'> <div class='orange circle' ng-transclude> </div> <img src='{{marked.imageUrl}}'/>{{marked.name}}</div>",
+      link: function(scope, element, attrs,controller) {
+          element.bind("click", function() {
+            alert(scope.marked.occupation);
+          });
+
+      }
     };
   });
 
