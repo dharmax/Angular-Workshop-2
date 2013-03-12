@@ -4,10 +4,15 @@ angular.module('components', [])
   .directive( 'user', function() {
     return {
       restrict:'ECA',
-      scope: {
-        person:"@"
-      },
-      template:"<div> selected: {{person}}</div>"
+      scope:false,
+      transclude: true,
+      template:"<div class='info'> <div class='orange circle' ng-transclude> </div>{{marked.name}}</div>",
+      link: function(scope, element, attrs,controller) {
+          element.bind("click", function() {
+            alert(scope.marked.occupation);
+          });
+
+      }
     };
   });
 

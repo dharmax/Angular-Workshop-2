@@ -41,6 +41,12 @@ input {
 .circle {
   border-radius: 100%;
   border: 1px solid silver;
+  text-align: center;
+}
+
+.orange {
+  background: orange;
+  color:blue;
 }
 
 .info {
@@ -49,6 +55,7 @@ input {
   margin: 20px 30px 0 30px;
   border-radius: 9px;
   background: #e0e020;
+  overflow: hidden;
 }
 .search {
   background: cyan;
