@@ -3,12 +3,9 @@
   
   <head lang="en">
     <meta charset="utf-8">
-    <title>Custom Plunker</title>
-    <script src="//code.angularjs.org/1.1.1/angular.js"></script>
+    <title>Step 6</title>
+    <script src="http://code.angularjs.org/1.1.1/angular.js"></script>
     <link rel="stylesheet" href="style.css">
-    <script>
-      document.write('<base href="' + document.location + '" />');
-    </script>
     <script src="app.js"></script>
   </head>
   
@@ -39,9 +36,14 @@
       </tr>
     </table>
   </span>
-  <mycircle> 
-    {{marked}}
-  </mycircle>
+  element
+  <user person="{{marked.name}}"> </user>
+  <br/>
+  class
+  <div class="user:" person="{{marked.name}}"> </div>
+  <br/>
+  attribute
+  <div user person="{{marked.name}}"></div>
 </body>
 
 </html>
