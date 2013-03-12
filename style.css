@@ -1,0 +1,52 @@
+
+h3 {
+  text-align:right;
+  color: blue;
+}
+
+.gender_male {
+  background: #0000f0;
+  color:white;
+}
+
+.gender_female {
+  background: #f03000;
+}
+.selection_true {
+  text-decoration:underline;
+}
+input {
+   border-radius: 9px;
+}
+
+table tr:first-child td:first-child{
+    border-radius: 9px 0 0 0;
+}
+table tr:first-child td:last-child{
+    border-radius: 0 9px 0 0;
+}
+
+table tr:last-child td:first-child{
+    border-radius: 0 0 0 9px;
+}
+table tr:last-child td:last-child{
+    border-radius: 0 0 9px 0;
+}
+.table {
+  font-size:1.5em;
+  float:left;
+  border-right: 1px solid silver;
+}
+.table td {
+  padding: 2px 2em 0 2em;
+}
+.info {
+  float:left;
+  width:200px;
+  margin: 20px 30px 0 30px;
+  border-radius: 9px;
+  background: #e0e020;
+}
+.search {
+  background: cyan;
+}
