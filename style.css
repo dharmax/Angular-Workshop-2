@@ -60,3 +60,10 @@ input {
 .search {
   background: cyan;
 }
+
+.block {
+  padding: 25px;
+  border: 2px solid grey;
+  box-shadow: 5px 5px 5px silver;
+  max-width: 1000px;
+}

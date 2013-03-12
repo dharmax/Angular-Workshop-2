@@ -4,9 +4,11 @@ angular.module('components', [])
   .directive( 'user', function() {
     return {
       restrict:'ECA',
-      scope:false,
-      transclude: true,
-      template:"<div class='info'> <div class='orange circle' ng-transclude> </div>{{marked.name}}</div>",
+      scope: {
+        who:"=who"
+      },
+      transclude: true, 
+      template:"<div class='info'> <div class='orange circle' ng-transclude> </div>{{who.name}}</div>",
       link: function(scope, element, attrs,controller) {
           element.bind("click", function() {
             alert(scope.marked.occupation);
@@ -14,7 +16,34 @@ angular.module('components', [])
 
       }
     };
-  });
+  })
+    .directive("tooltip", function() {
+      return {
+        restrict: 'A',
+        transclude: true,
+        scope: {
+          title:"@title",
+        },
+        template:"<div ng-model='hover'>"+
+          "<div ng-show='showTooltip' class='info tooltip'>"+
+            "{{title}}"+
+          "</div>"+
+          "<div ng-transclude></div>"+
+        "</div>",
+        link: function(scope,element,attrs,controller) {
+          scope.showTooltip = false;
+          element.bind("mouseover", function() {
+            scope.$apply( "showTooltip=true");
+          });
+          element.bind("mouseleave", function() {
+            scope.$apply( "showTooltip=false");
+          });
+        }
+
+
+
+      }
+    });
 
 var app = angular.module('angularjs-starter', ['components']);
 
