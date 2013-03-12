@@ -3,7 +3,7 @@
   
   <head lang="en">
     <meta charset="utf-8">
-    <title>Step 4</title>
+    <title>Step 4.1</title>
     <script src="http://code.angularjs.org/1.1.1/angular.js"></script>
     <link rel="stylesheet" href="style.css">
     <script src="app.js"></script>
@@ -17,15 +17,20 @@
       <option value="male">Male</option>
       <option value="female">Female</option>
     </select>
-    <input type="submit" value="Add!">
+    <input type="submit" value="Add">
   </form>    
+    
+    <h4>number of items {{items().length}}</h4>
+    <button ng-click="clear()">Clear all</button>
     <table >
-      <tr ng-repeat="item in items()" class="gender_{{item.gender}}">
-        <td>
-          {{item.name}} 
-        </td>
-        <td>{{item.occupation}}</td>
-      </tr>
+      <tbody>
+        <tr ng-repeat="item in items()" class="gender_{{item.gender}}">
+          <td>
+            {{item.name}} 
+          </td>
+          <td>{{item.occupation}}</td>
+        </tr>
+      </tbody>
     </table>
   </body>
 
