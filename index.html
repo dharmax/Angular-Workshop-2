@@ -3,11 +3,12 @@
   
   <head lang="en">
     <meta charset="utf-8">
-    <title>Custom Plunker</title>
+    <title>Step 4</title>
     <script src="http://code.angularjs.org/1.1.1/angular.js"></script>
     <link rel="stylesheet" href="style.css">
     <script src="app.js"></script>
   </head>
+  
   <body ng-controller="MainCtrl">
     <h3>Tikal Knowledge</h3>
   <form ng-submit="addEntry()">
@@ -17,10 +18,10 @@
       <option value="male">Male</option>
       <option value="female">Female</option>
     </select>
-    <input type="submit" value="Add">
-  </form>    
-    <table>
-      <tr ng-repeat="item in items" class="gender_{{item.gender}}">
+    <input type="submit" value="Add!">
+  </form>
+    <table >
+      <tr ng-repeat="item in items()" class="gender_{{item.gender}}">
         <td>
           {{item.name}} 
         </td>
