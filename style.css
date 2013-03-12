@@ -12,6 +12,9 @@ h3 {
 .gender_female {
   background: #f03000;
 }
+.selection_true {
+  text-decoration:underline;
+}
 input {
    border-radius: 9px;
 }

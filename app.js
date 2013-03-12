@@ -25,4 +25,9 @@ app.controller('MainCtrl', function($scope, Db) {
   $scope.updateInfo = function(item) {
     $scope.marked= item;
   };
+  $scope.occupations=[ 
+    {id: "secret-agent"},
+    {id: "assasin"},
+    {id: "zombie-hunter"}
+  ];
 });

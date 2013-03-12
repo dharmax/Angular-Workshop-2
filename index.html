@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html ng-app="angularjs-starter">
- <head lang="en">
-    <meta charset="utf-8">
+  <head lang="en">
+     <meta charset="utf-8">
     <title>Step 5</title>
     <script src="http://code.angularjs.org/1.1.1/angular.js"></script>
     <link rel="stylesheet" href="style.css">
@@ -11,7 +11,11 @@
     <h3>Tikal Knowledge</h3>
   <form ng-submit="addEntry()">
     <input type="text" ng-model="name" placeholder="name"><br />
-    <input type="text" ng-model="occupation" placeholder="occupation">
+     <select ng-model="occupation" ng-options="value.id as value.id for value in occupations">
+      <option>
+        --
+      </option>
+    </select>
     <select ng-model="gender">
       <option value="male">Male</option>
       <option value="female">Female</option>
@@ -21,10 +25,11 @@
   <p>
     <input class="search" type="text" ng-model="query" placeholder="search"/>
   </p>
-  <span class="table">
+
+  <span class="table" ng-mouseout="updateInfo()">
     <table>
       <tr ng-repeat="item in items() | filter:query" 
-      class="gender_{{item.gender}}" 
+      class="gender_{{item.gender}} selection_{{item==marked}}" 
       ng-model="marked" 
       ng-mouseover="updateInfo(item)">
         <td>
