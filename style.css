@@ -1,0 +1,14 @@
+
+h3 {
+  text-align:right;
+  color: blue;
+}
+
+.gender_male {
+  background: #0000f0;
+  color:white;
+}
+
+.gender_female {
+  background: #f03000;
+}
