@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html ng-app="angularjs-starter">
+  
+  <head lang="en">
+    <meta charset="utf-8">
+    <title>Custom Plunker</title>
+    <script src="//code.angularjs.org/1.1.1/angular.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script>
+      document.write('<base href="' + document.location + '" />');
+    </script>
+    <script src="app.js"></script>
+  </head>
+  
+  <body ng-controller="MainCtrl">
+    <h3>Tikal Knowledge</h3>
+  <form ng-submit="addEntry()">
+    <input type="text" ng-model="name" placeholder="name">
+    <input type="text" ng-model="occupation" placeholder="occupation">
+    <select ng-model="gender">
+      <option value="male">Male</option>
+      <option value="female">Female</option>
+    </select>
+    <input type="submit" value="Add">
+  </form>    
+  <p>
+    <input class="search" type="text" ng-model="query" placeholder="search"/>
+  </p>
+  <span class="table">
+    <table>
+      <tr ng-repeat="item in items() | filter:query" 
+      class="gender_{{item.gender}}" 
+      ng-model="marked" 
+      ng-mouseover="updateInfo(item)">
+        <td>
+          {{item.name}} 
+        </td>
+        <td>{{item.occupation}}</td>
+      </tr>
+    </table>
+  </span>
+  <mycircle> 
+    {{marked}}
+  </mycircle>
+</body>
+
+</html>
