@@ -40,12 +40,19 @@ table tr:last-child td:last-child{
 .table td {
   padding: 2px 2em 0 2em;
 }
+
 .info {
   float:left;
   width:200px;
   margin: 20px 30px 0 30px;
   border-radius: 9px;
   background: #e0e020;
+}
+
+.info img {
+  width: 75px;
+  height: 75px;
+  margin: 5px;
 }
 .search {
   background: cyan;
