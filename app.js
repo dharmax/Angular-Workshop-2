@@ -25,7 +25,7 @@ angular.module('components', [])
           title:"@title",
         },
         template:"<div>"+
-          "<div ng-show='showTooltip' class='info tooltip'>"+
+          "<div ng-show='showTooltip' class='info tooltip {{animation}}'>"+
             "{{title}}"+
           "</div>"+
           "<div ng-transclude></div>"+
@@ -34,6 +34,7 @@ angular.module('components', [])
           scope.showTooltip = false;
           element.bind("mouseover", function() {
             scope.$apply( "showTooltip=true");
+            scope.$apply("animation='fade-in'");
           });
           element.bind("mouseleave", function() {
             scope.$apply( "showTooltip=false");
