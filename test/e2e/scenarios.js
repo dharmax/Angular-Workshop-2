@@ -9,8 +9,8 @@ describe('my app', function() {
   });
 
 
-  it('should automatically redirect to /view1 when location hash/fragment is empty', function() {
-    expect(browser().location().url()).toBe("/view1");
+  it('should automatically redirect to /main when location hash/fragment is empty', function() {
+    expect(browser().location().url()).toBe("/main");
   });
 
 
@@ -38,7 +38,7 @@ describe('my app', function() {
 
     it('should render about when user navigates to /about', function() {
       expect(element('[ng-view] div:first').text()).
-        toMatch(/About/);
+        toMatch(/about/);
     });
 
   });
