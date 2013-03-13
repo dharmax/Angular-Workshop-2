@@ -3,9 +3,22 @@
 /* Directives */
 
 
-angular.module('myApp.directives', []).
-  directive('appVersion', ['version', function(version) {
-    return function(scope, elm, attrs) {
-      elm.text(version);
-    };
-  }]);
+angular.module('myApp.directives', [])
+  
+.directive('medialocator', function() {
+	return {
+		restrict: 'E',
+		replace: true,
+		transclude: true,
+		template:"<div>media locator</div>"
+	}
+
+})
+.directive('playlist', function() {
+	return {
+		restrict: 'E',
+		replace: true,
+		transclude: true,
+		template: "<div>playlist</div>"
+	}
+});
