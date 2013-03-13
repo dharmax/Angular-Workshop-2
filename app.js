@@ -24,7 +24,7 @@ angular.module('components', [])
         scope: {
           title:"@title",
         },
-        template:"<div ng-model='hover'>"+
+        template:"<div>"+
           "<div ng-show='showTooltip' class='info tooltip'>"+
             "{{title}}"+
           "</div>"+
