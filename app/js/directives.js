@@ -2,7 +2,6 @@
 
 /* Directives */
 
-
 angular.module('myApp.directives', [])
   
 .directive('medialocator', function() {
@@ -10,7 +9,7 @@ angular.module('myApp.directives', [])
 		restrict: 'E',
 		replace: true,
 		transclude: true,
-		template:"<div>media locator</div>"
+		templateUrl:"partials/components/medialocator.html"
 	}
 
 })
@@ -19,6 +18,7 @@ angular.module('myApp.directives', [])
 		restrict: 'E',
 		replace: true,
 		transclude: true,
-		template: "<div>playlist</div>"
+		templateUrl: "partials/components/playlist.html"
 	}
 });
+

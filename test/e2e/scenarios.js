@@ -14,31 +14,31 @@ describe('my app', function() {
   });
 
 
-  describe('view1', function() {
+  describe('main', function() {
 
     beforeEach(function() {
-      browser().navigateTo('#/view1');
+      browser().navigateTo('#/main');
     });
 
 
-    it('should render view1 when user navigates to /view1', function() {
-      expect(element('[ng-view] p:first').text()).
-        toMatch(/partial for view 1/);
+    it('should render main when user navigates to /main', function() {
+      expect(element('[ng-view] div:first').text()).
+        toMatch(/media locator/);
     });
 
   });
 
 
-  describe('view2', function() {
+  describe('about', function() {
 
     beforeEach(function() {
-      browser().navigateTo('#/view2');
+      browser().navigateTo('#/about');
     });
 
 
-    it('should render view2 when user navigates to /view2', function() {
-      expect(element('[ng-view] p:first').text()).
-        toMatch(/partial for view 2/);
+    it('should render about when user navigates to /about', function() {
+      expect(element('[ng-view] div:first').text()).
+        toMatch(/About/);
     });
 
   });

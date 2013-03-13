@@ -3,10 +3,11 @@
 /* Controllers */
 
 
-function MyCtrl1() {}
-MyCtrl1.$inject = [];
-
-
-function MyCtrl2() {
+function MyController($scope, YouTubeService) {
+	//MyCtrl1.$inject = [];
+	$scope.queryYouTube = function() {
+		YouTubeService.query($scope.queryString);
+	}
+	$scope.queryString = "";
+	
 }
-MyCtrl2.$inject = [];
