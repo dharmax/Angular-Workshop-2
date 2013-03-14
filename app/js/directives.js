@@ -39,6 +39,9 @@ angular.module('myApp.directives', [])
 		restrict: 'E',
 		replace: true,
 		transclude: true,
+		scope: {
+			entries: "=data"
+		},
 		templateUrl: "partials/components/playlist.html"
 	};
 })
