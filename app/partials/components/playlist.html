@@ -1,10 +1,24 @@
+
 <div>
+	<style type="text/css">
+	.playlist  {
+		display:inline-block;
+	}
+	h2 {
+		margin-left: 10px;
+ 		-webkit-transition: all 0.3s ease-out;
+        -moz-transition: all 0.3s ease-out;
+        -o-transition: all 0.3s ease-out;
+        transition: all 0.3s ease-out;	
+    }
+    h2:hover {
+    	margin-left: 100px;
+    }
 
-This is the playlist {{queryString}}
-
-	<ul ng-repeat="entry in queryYouTube()">
-		<li>{{entry.title}}</li>
-
+	</style>
+	<h2 ng-transclude></h2>
+	<ul class="playlist" ng-repeat="entry in queryYouTube()">
+		<x-videothumb x-data="entry"></x-videothumb>
 	</ul>
 
 </div>

@@ -9,5 +9,8 @@ function MyController($scope, YouTubeService) {
 		return result;
 	};
 	$scope.queryString = "";
+	$scope.play = function(url) {
+		alert("will play " + url);
+	}
 
 }

@@ -14,10 +14,10 @@ angular.module('myApp.services', {
 }).factory('YouTubeService', function() {
 
 	var dummyData= [
-		{ title: "item1", url:"bla1"},
-		{ title: "item2", url:"bla2"},
-		{ title: "item3", url:"bla3"},
-		{ title: "item4", url:"bla4"},
+		{ title: "item1", url:"bla1", thumb:"bli"},
+		{ title: "item2", url:"bla2", thumb:"bli"},
+		{ title: "item3", url:"bla3", thumb:"bli"},
+		{ title: "item4", url:"bla4", thumb:"bli"},
 	]
 	var service = {
 		search: function(query) {
