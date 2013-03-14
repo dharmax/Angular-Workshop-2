@@ -4,9 +4,10 @@
 
 
 function MyController($scope, YouTubeService) {
-	//MyCtrl1.$inject = [];
 	$scope.queryYouTube = function() {
-		YouTubeService.query($scope.queryString);
+		var result = YouTubeService.search($scope.queryString);
+		return result;
 	};
 	$scope.queryString = "";
+
 }

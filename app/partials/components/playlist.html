@@ -1,8 +1,9 @@
 <div>
 
 This is the playlist {{queryString}}
-	<ul ng-repeat="entry in [1, 2, 3]">
-		<li>{{entry}}</li>
+
+	<ul ng-repeat="entry in queryYouTube()">
+		<li>{{entry.title}}</li>
 
 	</ul>
 
