@@ -1,6 +1,6 @@
 <div>
 	<x-medialocator></x-medialocator>
-	<x-playlist x-data="playlistItems" class="block">
+	<x-playlist x-data="playlistItems" class="block" x-droppable x-accepting-objects="videothumb" x-drop-cb="handleDrop">
 		<span ng-show="playlistItems.length > 0"> This is your playlist </span>
 		<span ng-hide="playlistItems.length > 0"> Your playlist is currently empty. You can drag&drop items from the Locator to populate it</span>
 	</x-playlist>

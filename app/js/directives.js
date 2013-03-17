@@ -32,10 +32,11 @@ angular.module('myApp.directives', [])
 		link: function(scope, element, attrs, controller) {
 		  	var options = scope.$eval(attrs.draggable); //allow options to be passed in
       		$(element).draggable(options);
-      		$(element).prop("dndInfo", {
-      			associatedObject: scope.$parent.$eval(attrs.passableObject),
+      		var object = {
+      			associatedObject: scope.$eval(attrs.passableObject),
       			objectType: attrs.objectType
-      		});
+      		};
+      		$(element).prop("dndInfo", object);
       		
 		}
 	}
@@ -54,7 +55,10 @@ directive('droppable', function() {
 		  	var options = scope.$eval(attrs.draggable); //allow options to be passed in
       		$(element).droppable({
       			drop: function( event, ui) {
-      				scope.handleDrop(ui.draggable.prop('dndInfo'));
+      				var dndInfo = ui.draggable.prop('dndInfo');
+      				if ( dndInfo.objectType === attrs.acceptingObjects) {
+      					scope.handleDrop(dndInfo);
+      				}
       			}
       		});
 		},
@@ -83,8 +87,8 @@ directive('droppable', function() {
 		templateUrl: "partials/components/playlist.html",
 		controller: function( $scope) {
 			$scope.handleDrop = function( dndInfo) {
-				alert(dndInfo);
-			}
+				$scope.$parent.moveToList(dndInfo.associatedObject);
+			};
 		}
 
 	};
