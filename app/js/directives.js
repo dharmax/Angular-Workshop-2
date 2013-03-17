@@ -29,16 +29,14 @@ angular.module('myApp.directives', [])
 		restrict:'A',
 		replace: false,
 		transclude: false,
-		scope: {
-			objectType: "@"
-		},
 		link: function(scope, element, attrs, controller) {
 		  	var options = scope.$eval(attrs.draggable); //allow options to be passed in
       		$(element).draggable(options);
-      		element.dndInfo = {
-      			associatedObject: scope.$eval(attrs.passableObject),
-      			objectType: scope.objectType
-      		}
+      		$(element).prop("dndInfo", {
+      			associatedObject: scope.$parent.$eval(attrs.passableObject),
+      			objectType: attrs.objectType
+      		});
+      		
 		}
 	}
 }).
@@ -50,16 +48,16 @@ directive('droppable', function() {
 		transclude: false,
 		scope: {
 			objectType: "@",
-			handleDrop:"="
+			handleDrop:"=dropCb"
 		},
 		link: function(scope, element, attrs, controller) {
 		  	var options = scope.$eval(attrs.draggable); //allow options to be passed in
       		$(element).droppable({
       			drop: function( event, ui) {
-      				scope.handleDrop(element.dndInfo);
+      				scope.handleDrop(ui.draggable.prop('dndInfo'));
       			}
       		});
-		}
+		},
 	}
 })
 .directive('medialocator', function() {
@@ -82,7 +80,13 @@ directive('droppable', function() {
 			// we bind the entries to the attribute
 			entries: "=data"
 		},
-		templateUrl: "partials/components/playlist.html"
+		templateUrl: "partials/components/playlist.html",
+		controller: function( $scope) {
+			$scope.handleDrop = function( dndInfo) {
+				alert(dndInfo);
+			}
+		}
+
 	};
 })
 ;

@@ -30,7 +30,7 @@
 
 </style>
 
-<div draggable objectType="videothumb" class="videothumb">
+<div draggable x-object-type="videothumb" x-passable-object="data" class="videothumb">
 	<img src="{{data.thumb}}" ng-click="play({{data.url}})"></img>
 	<span>{{data.title}}</span>
 </div>
