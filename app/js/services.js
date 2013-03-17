@@ -5,6 +5,7 @@
 
 
 angular.module('myApp.services', {
+	// note this optional methods
 	setup: function() {
 		// setup for module name 
 	},
@@ -16,12 +17,12 @@ angular.module('myApp.services', {
 	var service = {
 		search: function(query) {
 			var deffered = $q.defer();
+			// note the JSON_CALLBACK at the end: angular's $http populates it. Mind the uppercase.
 			var url = 'http://gdata.youtube.com/feeds/videos?vq=' + query + 
 				'&max-results=8&alt=json-in-script' +
 				'&orderby=relevance' +'&sortorder=descending&format=5&fmt=18'+
 				'&callback=JSON_CALLBACK';
 
-			//var url = "https://gdata.youtube.com/feeds/api/videos?q="+query+"&orderby=published&start-index=11&max-results=10&v=2callback=JSON_CALLBACK";
 			$http.jsonp(url).success(function(data) {
 
 				var results = [];

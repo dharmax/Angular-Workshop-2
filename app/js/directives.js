@@ -4,7 +4,7 @@
 
 angular.module('myApp.directives', [])
 .directive('videothumb', function(){
-	// Runs during compile
+	// Runs during compile. See the commented out options
 	return {
 		// name: '',
 		// priority: 1,
@@ -21,11 +21,12 @@ angular.module('myApp.directives', [])
 		transclude: true,
 		// compile: function(tElement, tAttrs, function transclude(function(scope, cloneLinkingFn){ return function linking(scope, elm, attrs){}})),
 		link: function($scope, iElm, iAttrs, controller) {
-			
+			iElm.bind('mousedown', )
 		}
 	};
 })
 .directive('medialocator', function() {
+	// a directive which is merely a template
 	return {
 		restrict: 'E',
 		replace: true,
@@ -35,11 +36,13 @@ angular.module('myApp.directives', [])
 
 })
 .directive('playlist', function() {
+	// a directive with databinding 
 	return {
 		restrict: 'E',
 		replace: true,
 		transclude: true,
 		scope: {
+			// we bind the entries to the attribute
 			entries: "=data"
 		},
 		templateUrl: "partials/components/playlist.html"
