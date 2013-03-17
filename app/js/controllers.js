@@ -8,8 +8,12 @@ function MyController($scope, YouTubeService) {
 	$scope.playlistItems = [];
 	$scope.queryResults = [];
 	$scope.$watch('queryString', function(queryString) {
+		
 		var resultsPromise = YouTubeService.search($scope.queryString);
+		$scope.queryResults = resultsPromise; // for real-time display update....
+
 		resultsPromise.then( function( results) {
+			// ...for getting it as a simple Array
 			$scope.queryResults = results;
 		});
 	});

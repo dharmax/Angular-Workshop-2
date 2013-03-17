@@ -4,7 +4,7 @@
 
 angular.module('myApp.directives', [])
 .directive('videothumb', function(){
-	// Runs during compile. See the commented out options
+	// Runs during compile. See the commented out options for an overview
 	return {
 		// name: '',
 		// priority: 1,
@@ -42,7 +42,7 @@ angular.module('myApp.directives', [])
 	}
 }).
 directive('droppable', function() {
-
+	// "feature" directive
 	return {
 		restrict:'A',
 		replace: false,
@@ -70,7 +70,8 @@ directive('droppable', function() {
 		restrict: 'E',
 		replace: true,
 		transclude: true,
-		templateUrl:"partials/components/medialocator.html"
+		templateUrl:"partials/components/medialocator.html",
+
 	};
 
 })
@@ -91,6 +92,26 @@ directive('droppable', function() {
 			};
 		}
 
+	};
+})
+.directive('zippy', function() {
+	return {
+		restrict: 'AC',
+		replace: false,
+		transclude: true,
+		scope: {
+			title: '@'
+		},
+		template: "<div>" 
+			+"<div class='zippy_toggle zippy_{{closed}}' ng-click='toggle()'>{{title}}</div>"
+			+"<div ng-hide='closed' ng-transclude></div>"
+			+"</div>",
+		controller: function($scope) {
+			$scope.closed = true;
+			$scope.toggle = function() {
+				$scope.closed = !$scope.closed;
+			}
+		}
 	};
 })
 ;

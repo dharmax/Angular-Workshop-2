@@ -1,10 +1,10 @@
+
 <div class="block">
-
-This is the media locator
-<br/>
-<input x-ng-model="queryString" placeholder="search">
-<x-playlist x-data="queryResults">
-	Results
-</x-playlist>
-
+	<br/>
+	<input x-ng-model="queryString" placeholder="search"/>
+	<div x-zippy title="Show Results">
+		<x-playlist x-data="queryResults">
+			<div ng-show="queryResults.length > 0">Results</div>
+		</x-playlist>
+	</div>
 </div>

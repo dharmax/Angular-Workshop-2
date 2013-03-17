@@ -46,3 +46,15 @@ a {
 
 }
 
+.zippy_toggle {
+  background: gray;
+  color: black;
+}
+.zippy_true:before {
+  content:"→ ";
+  font-weight: bolder;
+}
+.zippy_false:before {
+  content:"↓ ";
+  font-weight: bolder;
+}
