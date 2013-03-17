@@ -20,10 +20,47 @@ angular.module('myApp.directives', [])
 		// replace: true,
 		transclude: true,
 		// compile: function(tElement, tAttrs, function transclude(function(scope, cloneLinkingFn){ return function linking(scope, elm, attrs){}})),
-		link: function($scope, iElm, iAttrs, controller) {
-			// iElm.bind('mousedown', )
-		}
+		// link: function($scope, iElm, iAttrs, controller) {
+		// }
 	};
+})
+.directive('draggable', function() {
+	return {
+		restrict:'A',
+		replace: false,
+		transclude: false,
+		scope: {
+			objectType: "@"
+		},
+		link: function(scope, element, attrs, controller) {
+		  	var options = scope.$eval(attrs.draggable); //allow options to be passed in
+      		$(element).draggable(options);
+      		element.dndInfo = {
+      			associatedObject: scope.$eval(attrs.passableObject),
+      			objectType: scope.objectType
+      		}
+		}
+	}
+}).
+directive('droppable', function() {
+
+	return {
+		restrict:'A',
+		replace: false,
+		transclude: false,
+		scope: {
+			objectType: "@",
+			handleDrop:"="
+		},
+		link: function(scope, element, attrs, controller) {
+		  	var options = scope.$eval(attrs.draggable); //allow options to be passed in
+      		$(element).droppable({
+      			drop: function( event, ui) {
+      				scope.handleDrop(element.dndInfo);
+      			}
+      		});
+		}
+	}
 })
 .directive('medialocator', function() {
 	// a directive which is merely a template
