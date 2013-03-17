@@ -13,24 +13,6 @@ angular.module('myApp.services', {
 	}
 }).factory('YouTubeService', function($http, $q) {
 
-	var dummyData = [{
-		title: "item1",
-		url: "bla1",
-		thumb: "bli"
-	}, {
-		title: "item2",
-		url: "bla2",
-		thumb: "bli"
-	}, {
-		title: "item3",
-		url: "bla3",
-		thumb: "bli"
-	}, {
-		title: "item4",
-		url: "bla4",
-		thumb: "bli"
-	}];
-
 	var service = {
 		search: function(query) {
 			var deffered = $q.defer();
