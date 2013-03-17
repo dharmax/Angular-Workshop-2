@@ -8,18 +8,20 @@ function MyController($scope, YouTubeService) {
 	$scope.playlistItems = [];
 	$scope.queryResults = [];
 	$scope.$watch('queryString', function(queryString) {
-		$scope.queryResults = YouTubeService.search($scope.queryString);
+		var resultsPromise = YouTubeService.search($scope.queryString);
+		resultsPromise.then( function( results) {
+			$scope.queryResults = results;
+		});
 	});
 	$scope.moveToList = function(video) {
 		$scope.playlistItems.push(video);
-		angular.copy($scope.queryResults, $scope.queryResults);
-		// var qr= $scope.queryResults;
-		// for (var i=0; i < $scope.queryResults.length(); i++) {
-		// 	if ( $scope.queryResults[i] === video) {
-		// 		$scope.queryResults.splice(i,1);
-		// 		break;
-		// 	}
-		// }
+		var qr= $scope.queryResults;
+		for (var i=0; i < qr.length; i++) {
+			if ( qr[i] === video) {
+				qr.splice(i,1);
+				break;
+			}
+		}
 
 	};
 	$scope.play = function(url) {
