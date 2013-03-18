@@ -3,11 +3,13 @@
 body {
   background:#FFF url('../img/irongrip/irongrip.png') repeat center top;   
   color:white;
+
 }
 
 a {
   color:yellow;
 }
+
 
 .block {
   border: 1px solid darkgrey;
