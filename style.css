@@ -74,12 +74,9 @@ table tr:last-child td:last-child{
   max-width: 1000px;
 }
 
-<<<<<<< HEAD
-
-=======
 .tooltip {
   position: absolute;
   border: 1px solid red;
   padding: 20px;
+  box-shadow: 5px 5px 5px silver;
 }
->>>>>>> step 6.2
