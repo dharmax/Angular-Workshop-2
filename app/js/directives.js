@@ -89,6 +89,7 @@ directive('droppable', function() {
 		},
 		templateUrl: "partials/components/playlist.html",
 		controller: function($scope) {
+			// we want to have a special behavior, so we add a controller for this directive
 			$scope.handleDrop = function(dndInfo) {
 				$scope.$parent.moveToList(dndInfo.associatedObject);
 			};

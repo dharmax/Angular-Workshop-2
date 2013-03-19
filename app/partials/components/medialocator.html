@@ -1,7 +1,8 @@
 
-<div class="block">
+<div class="media-locator block">
 	<br/>
 	<input x-ng-model="queryString" placeholder="search"/>
+	<!-- Note the bug with the zippy - it doesn't let containing directive work if it include the Input -->
 	<div x-zippy title="Show Results">
 		<x-playlist x-data="queryResults">
 			<div ng-show="queryResults.length > 0">Results</div>
