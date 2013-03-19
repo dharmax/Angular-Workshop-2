@@ -40,7 +40,6 @@ table tr:last-child td:last-child{
 .table td {
   padding: 2px 2em 0 2em;
 }
-
 .info {
   float:left;
   width:200px;
@@ -48,7 +47,6 @@ table tr:last-child td:last-child{
   border-radius: 9px;
   background: #e0e020;
 }
-
 .info img {
   width: 75px;
   height: 75px;
