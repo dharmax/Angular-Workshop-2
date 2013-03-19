@@ -78,5 +78,8 @@ table tr:last-child td:last-child{
   position: absolute;
   border: 1px solid red;
   padding: 20px;
+<<<<<<< HEAD
   box-shadow: 5px 5px 5px silver;
+=======
+>>>>>>> 92c961529f2a96791039e0509e20fb63a4d0ab38
 }
