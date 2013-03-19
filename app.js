@@ -10,10 +10,6 @@ app.factory( 'Db', function() {
     { name: "Harry Seldon", gender: "male", occupation: "fortune teller"},
     { name: "Barak Obamba", gender: "male", occupation: "trouble maker"}
     ];
-  db.getItems = function() { return items; };
-  db.add = function(item){ 
-    items.push(item);
-  };
     
   var items = localdb ? JSON.parse(localdb) : null;
   
