@@ -18,7 +18,6 @@ app.factory( 'Db', function() {
 });
 
 app.controller('MainCtrl', function($scope, Db) {
-
   $scope.items = Db.getItems;
   $scope.addEntry = function() {
     Db.add( {name: $scope.name, gender:$scope.gender, occupation:$scope.occupation});
