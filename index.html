@@ -25,7 +25,6 @@
   <p>
     <input class="search" type="text" ng-model="query" placeholder="search"/>
   </p>
-
   <span class="table" ng-mouseout="updateInfo()">
     <table>
       <tr ng-repeat="item in items() | filter:query" 
