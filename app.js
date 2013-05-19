@@ -4,7 +4,7 @@ angular.module('components', [])
       restrict:'ECA',
       scope:false,
       transclude: true,
-      template:"<div class='info'> <div class='orange circle' ng-transclude> </div> <img src='{{marked.imageUrl}}'/>{{marked.name}}</div>",
+      template:"<div ng-show='marked' class='info'> <div class='orange circle' ng-transclude> </div> <img src='{{marked.imageUrl}}'/>{{marked.name}}</div>",
       link: function(scope, element, attrs,controller) {
           element.bind("click", function() {
             alert(scope.marked.occupation);
