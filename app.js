@@ -19,7 +19,9 @@ app.factory( 'Db', function() {
     { name: "Harry Seldon", gender: "male", occupation: "fortune teller", imageUrl:"http://t3.gstatic.com/images?q=tbn:ANd9GcTFs9fRwPmz9ByS5aWk08IPJXATqKvR-J0dT1qFcD2HCefie6g6"},
     { name: "Barak Obamba", gender: "male", occupation: "trouble maker", imageUrl:"http://t3.gstatic.com/images?q=tbn:ANd9GcTFs9fRwPmz9ByS5aWk08IPJXATqKvR-J0dT1qFcD2HCefie6g6"}
     ];
+
   db.getItems = function() { return items; };
+
   db.add = function(item){ 
     items.push(item);
   };
