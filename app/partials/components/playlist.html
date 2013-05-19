@@ -14,11 +14,13 @@
 		h2:hover {
 			margin-left: 100px;
 		}
-
 	</style>
+
 	<h2 ng-transclude></h2>
-	<ul class="playlist" ng-repeat="entry in entries">
-		<x-videothumb x-data="entry"></x-videothumb>
-	</ul>
+
+	<div class="playlist" ng-repeat="entry in entries">
+		<x-videothumb x-data="entry"/>
+	</div>
+
 
 </div>

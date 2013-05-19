@@ -60,3 +60,36 @@ a {
   content:"↓ ";
   font-weight: bolder;
 }
+
+.video-player {
+  position: fixed;
+  height: 50%;
+  width: 50%;
+  top: 25%;
+  left: 25%;
+  margin: 5px;
+  border: 2px solid red;
+  box-shadow: 0px 0px 40px red;
+  background: black;
+  z-index: 10;
+}
+.video-player iframe {
+  width: 100%;
+  height:94%;
+}
+.video-player button {
+  position:absolute;
+  right: 0;
+  top:-20px;
+  border-radius: 7px 7px 0 0;
+}
+
+.playlist {
+  border: 2px solid green;
+  margin: 10px;
+  min-height: 150px;
+  box-shadow: 0px 0px 40px blue;
+}
+.drag-over {
+  border-style: dashed;
+}

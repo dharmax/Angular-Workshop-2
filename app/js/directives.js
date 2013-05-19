@@ -12,60 +12,24 @@ angular.module('myApp.directives', [])
 		scope: {
 			data: "=data"
 		}, // {} = isolate, true = child, false/undefined = no change
-		// cont­rol­ler: function($scope, $element, $attrs, $transclue) {},
 		// require: 'ngModel', // Array = multiple requires, ? = optional, ^ = check parent elements
 		restrict: 'E', // E = Element, A = Attribute, C = Class, M = Comment
 		// template: '',
 		templateUrl: 'partials/components/videothumb.html',
 		// replace: true,
-		transclude: true
+		transclude: true,
 		// compile: function(tElement, tAttrs, function transclude(function(scope, cloneLinkingFn){ return function linking(scope, elm, attrs){}})),
-		// link: function($scope, iElm, iAttrs, controller) {
-		// }
-	};
-})
-	.directive('draggable', function() {
-	return {
-		restrict: 'A',
-		replace: false,
-		transclude: false,
-		link: function(scope, element, attrs, controller) {
-			var options = scope.$eval(attrs.draggable) || {}; //allow options to be passed in
-			options.snap = true;
-			options.snapMode = "inner";
-			$(element).draggable(options);
-			var object = {
-				associatedObject: scope.$eval(attrs.passableObject),
-				objectType: attrs.objectType,
-				node: element
+		controller: function($scope, $element, $rootScope) {
+			$scope.play = function(url) {
+				$rootScope.$broadcast("playVideo", url);
 			};
-			$(element).prop("dndInfo", object);
-
-		}
-	};
-}).
-directive('droppable', function() {
-	// "feature" directive
-	return {
-		restrict: 'A',
-		replace: false,
-		transclude: false,
-		scope: {
-			objectType: "@",
-			handleDrop: "=dropCb"
-		},
-		link: function(scope, element, attrs, controller) {
-			$(element).droppable({
-				drop: function(event, ui) {
-					var dndInfo = ui.draggable.prop('dndInfo');
-					if (dndInfo.objectType === attrs.acceptingObjects) {
-						scope.handleDrop(dndInfo);
-					}
-				}
+			$element.bind('dragstart', function(ev) {
+				$rootScope.draggedVideo = $scope.data;
 			});
 		},
 	};
 })
+
 	.directive('medialocator', function() {
 	// a directive which is merely a template
 	return {
@@ -85,16 +49,32 @@ directive('droppable', function() {
 		transclude: true,
 		scope: {
 			// we bind the entries to the attribute
-			entries: "=data"
+			entries: "=data",
+			droptarget: "@"
 		},
 		templateUrl: "partials/components/playlist.html",
-		controller: function($scope) {
-			// we want to have a special behavior, so we add a controller for this directive
-			$scope.handleDrop = function(dndInfo) {
-				$scope.$parent.moveToList(dndInfo.associatedObject);
-			};
-		}
+		link: function($scope, element, attr) {
+			if (attr.droptarget) {
+				element.bind("dragover", function(event) {
+					element.addClass("drag-over");
+					event.preventDefault();
+					//event.dataTransfer.dropEffect="move";
+				});
+				element.bind("dragleave", function(event) {
+					element.removeClass("drag-over");
+				});
 
+			}
+
+		},
+		controller: function( $scope, $element, $rootScope) {
+				$element.bind("drop", function(event) {
+					event.preventDefault();
+					$scope.$parent.moveToList($rootScope.draggedVideo);
+					$scope.$digest();
+				});
+
+		}
 	};
 })
 	.directive('zippy', function() {
@@ -107,7 +87,7 @@ directive('droppable', function() {
 		},
 		template: "<div>" + "<div class='zippy_toggle zippy_{{closed}}' ng-click='toggle()'>{{title}}</div>" + "<div ng-hide='closed' ng-transclude></div>" + "</div>",
 		controller: function($scope) {
-			$scope.closed = true;
+			$scope.closed = false;
 			$scope.toggle = function() {
 				$scope.closed = !$scope.closed;
 			};

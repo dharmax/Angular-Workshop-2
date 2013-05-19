@@ -47,4 +47,6 @@ angular.module('myApp.services', {
 		}
 	};
 	return service;
-});
+})
+
+;
