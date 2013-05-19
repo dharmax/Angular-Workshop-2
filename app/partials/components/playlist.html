@@ -2,7 +2,7 @@
 <div>
 	<style type="text/css">
 	.playlist  {
-		display:inline-block;
+		display:inline-table;
 	}
 	h2 {
 		margin-left: 10px;
@@ -18,7 +18,7 @@
 	</style>
 	<h2 ng-transclude></h2>
 	<ul class="playlist" ng-repeat="entry in entries">
-		<x-videothumb x-data="entry"></x-videothumb>
+		<x-videothumb x-data="entry"/>
 	</ul>
 
 </div>
