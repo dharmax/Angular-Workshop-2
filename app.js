@@ -9,13 +9,13 @@ app.factory( 'Db', function() {
     { name: "Mrs. Smith", gender: "female", occupation: "secret agent"},
     { name: "Harry Seldon", gender: "male", occupation: "fortune teller"},
     { name: "Barak Obamba", gender: "male", occupation: "trouble maker"}
-    ];
+  ];
     
   var items = localdb ? JSON.parse(localdb) : null;
   
   items = items || defaultItems;
-  
   db.getItems = function() { return items; };
+
   db.add = function(item){ 
     items.push(item);
     updateLocalDB();
