@@ -1,9 +1,8 @@
 <div>
 
-	<div ng-show="nowPlaying">
-		player
-		<button ng-click="nowPlaying=false">Close</button>
-		<iframe id="ytplayer" type="text/html" width="640" height="360"
+	<div class="video-player" ng-show="nowPlaying">
+		<button ng-click="nowPlaying=false">Close</button><br/>
+		<iframe id="ytplayer" type="text/html" 
 		src="https://www.youtube.com/embed/{{videoId}}"
 		frameborder="0" allowfullscreen></iframe>	
 	</div>
