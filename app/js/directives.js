@@ -20,9 +20,9 @@ angular.module('myApp.directives', [])
 		transclude: true,
 		// compile: function(tElement, tAttrs, function transclude(function(scope, cloneLinkingFn){ return function linking(scope, elm, attrs){}})),
 		//link: function($scope, iElm, iAttrs, controller) {}
-		controller: function($scope, $element, $attrs, $transclude) {
+		controller: function($scope, $rootScope) {
 			$scope.play = function(url) {
-				alert(url);
+				$rootScope.$broadcast("playVideo", url);
 			};
 		},
 	};
