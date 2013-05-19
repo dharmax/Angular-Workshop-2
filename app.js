@@ -7,7 +7,7 @@ angular.module('components', [])
       },
       template:"<div ng-show='user'>"+
       "<img src='{{user.imageUrl}}'/>"+
-      "{{user.name}}<p>{{occupation}}</div>"
+      "{{user.name}}<br/>{{occupation}}</div>"
     };
   });
 
