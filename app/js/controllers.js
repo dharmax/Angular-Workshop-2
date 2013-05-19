@@ -1,7 +1,5 @@
-'use strict';
 
 /* Controllers */
-
 
 function MyController($scope, YouTubeService) {
 	$scope.queryString = "";
