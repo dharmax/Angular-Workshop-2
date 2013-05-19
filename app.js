@@ -2,9 +2,12 @@ angular.module('components', [])
   .directive( 'user', function() {
     return {
       scope: {
-        user: "="
+        user: "=",
+        occupation: "@"
       },
-      template:"<div> <img src='{{user.imageUrl}}'/>{{user.name}}</div>"
+      template:"<div ng-show='user'>"+
+      "<img src='{{user.imageUrl}}'/>"+
+      "{{user.name}}<p>{{occupation}}</div>"
     };
   });
 
