@@ -58,22 +58,18 @@ angular.module('myApp.directives', [])
 				element.bind("dragover", function(event) {
 					element.addClass("drag-over");
 					event.preventDefault();
-					//event.dataTransfer.dropEffect="move";
 				});
 				element.bind("dragleave", function(event) {
 					element.removeClass("drag-over");
 				});
-
 			}
-
 		},
 		controller: function( $scope, $element, $rootScope) {
-				$element.bind("drop", function(event) {
-					event.preventDefault();
-					$scope.$parent.moveToList($rootScope.draggedVideo);
-					$scope.$digest();
-				});
-
+			$element.bind("drop", function(event) {
+				event.preventDefault();
+				$scope.$parent.moveToList($rootScope.draggedVideo);
+				$scope.$digest();
+			});
 		}
 	};
 })
