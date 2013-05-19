@@ -29,7 +29,6 @@
     <table>
       <tr ng-repeat="item in items() | filter:query" 
       class="gender_{{item.gender}} selection_{{item==marked}}" 
-      ng-model="marked" 
       ng-mouseover="updateInfo(item)">
         <td>
           {{item.name}} 
