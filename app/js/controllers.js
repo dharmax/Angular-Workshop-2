@@ -19,10 +19,11 @@ function MyController($scope, YouTubeService) {
 	});
 
 	$scope.moveToList = function(video) {
+		if ($scope.playlistItems.indexOf(video) != -1 )
+			return;
 		$scope.playlistItems.push(video);
-		var qr= $scope.queryResults;
-		var i = qr.indexOf(video);
-		qr.splice(i,1);
+		var i = $scope.queryResults.indexOf(video);
+		$scope.queryResults.splice(i,1);
 	};
 
 	$scope.$on('playVideo', function(event, url) {
