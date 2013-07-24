@@ -1,11 +1,9 @@
 <div>
 	<div class="video-player" ng-show="nowPlaying">
-		<div>
 			<button ng-click="nowPlaying=false; videoId=''">Close</button><br/>
 			<iframe id="ytplayer" type="text/html" 
 			src="https://www.youtube.com/embed/{{videoId}}"
 			frameborder="0" allowfullscreen></iframe>	
-		</div>
 	</div>
 
 	<x-playlist droptarget="true" class="playlist" x-data="playlistItems">
