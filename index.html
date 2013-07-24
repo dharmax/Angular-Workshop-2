@@ -18,14 +18,23 @@
       <option value="female">Female</option>
     </select>
     <input type="submit" value="Add">
-  </form>    
+  </form>
+    <input type="checkbox" ng-model="altWay"/>Alternative implementation
     <table>
-      <tr ng-repeat="item in items" ng-class="'gender_'+item.gender">
+        <tr ng-hide="altWay" ng-repeat="item in items" ng-class="'gender_'+item.gender">
+
         <td>
           {{item.name}} 
         </td>
         <td>{{item.occupation}}</td>
       </tr>
+        <tr ng-show="altWay" ng-repeat="item in items" ng-class="{gender_male:!isMale(item), gender_female:isMale(item)}">
+            <td>
+                {{item.name}}
+            </td>
+            <td>{{item.occupation}}</td>
+        </tr>
+
     </table>
   </body>
 
